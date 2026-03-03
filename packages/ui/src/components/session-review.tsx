@@ -574,13 +574,16 @@ export const SessionReview = (props: SessionReviewProps) => {
             <Button
               size="small"
               icon="chevron-grabber-vertical"
-              class="w-[106px] justify-start"
+              class="min-w-0 max-w-full justify-start"
+              data-slot="session-review-toggle-all"
               onClick={handleExpandOrCollapseAll}
             >
-              <Switch>
-                <Match when={open().length > 0}>{i18n.t("ui.sessionReview.collapseAll")}</Match>
-                <Match when={true}>{i18n.t("ui.sessionReview.expandAll")}</Match>
-              </Switch>
+              <span data-slot="session-review-toggle-all-label">
+                <Switch>
+                  <Match when={open().length > 0}>{i18n.t("ui.sessionReview.collapseAll")}</Match>
+                  <Match when={true}>{i18n.t("ui.sessionReview.expandAll")}</Match>
+                </Switch>
+              </span>
             </Button>
           </Show>
           {props.actions}
